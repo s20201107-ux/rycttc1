@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新消息 - 直式便利貼風</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+            background: #f5f7f0;
+            margin: 0;
+            padding: 40px 20px;
+        }
 
+        .memo-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #5d4037;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        h2::after {
+            content: "✎";
+            font-size: 3rem;
+            display: block;
+            margin-top: 20px;
+            opacity: 0.3;
+        }
+
+        .memo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;           /* 每張便利貼之間的距離 */
+            align-items: center;
+        }
+
+        .memo {
+            background: linear-gradient(145deg, #fff9c4, #fff59d);
+            width: 100%;
+            max-width: 700px;
+            padding: 35px 40px;
+            border-radius: 12px;
+            box-shadow: 8px 8px 20px rgba(0,0,0,0.15);
+            position: relative;
+            transform: rotate(-1.5deg);
+            margin-bottom: 20px;
+            transition: all 0.4s;
+        }
+
+        .memo:nth-child(even)  { 
+            transform: rotate(1.8deg); 
+            background: linear-gradient(145deg, #c8e6c9, #a5d6a7); 
+        }
+        .memo:nth-child(3n)      { 
+            transform: rotate(-1deg); 
+            background: linear-gradient(145deg, #bbdefb, #90caf9); 
+        }
+        .memo:nth-child(4n)    { 
+            transform: rotate(2deg); 
+            background: linear-gradient(145deg, #f8bbd0, #f48fb1); 
+        }
+        .memo:nth-child(5n)    { 
+            transform: rotate(-2deg); 
+            background: linear-gradient(145deg, #e1bee7, #ce93d8); 
+        }
+
+        .memo:hover {
+            transform: rotate(0deg) scale(1.03);
+            z-index: 10;
+            box-shadow: 12px 20px 40px rgba(0,0,0,0.25);
+        }
+
+        /* 膠帶 */
+        .memo::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: rgba(255,255,255,0.7);
+            border: 2px dashed rgba(0,0,0,0.15);
+            border-radius: 6px;
+        }
+
+        .memo-date {
+            font-size: 1.2rem;
+            color: #d32f2f;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px white;
+        }
+
+        .memo-title {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #3e2723;
+            margin-bottom: 18px;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .memo-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #4e342e;
+        }
+
+        /* 手機優化 */
+        @media (max-width: 768px) {
+            .memo {
+                padding: 30px 25px;
+                transform: rotate(0deg) !important;   /* 手機上不要歪來歪去比較好閱讀 */
+            }
+            .memo-title { font-size: 1.5rem; }
+            h2 { font-size: 2.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="memo-section">
+        <h2>最新消息</h2>
+
+        <div class="memo-list">
+
+            <div class="memo">
+                <div class="memo-date">2025.11.28</div>
+                <div class="memo-title">2025 年度會員大會 & 頒獎典禮</div>
+                <div class="memo-content">
+                    本會將於 12 月 20 日（六）下午 2 點在俱樂部大禮堂舉辦 2025 年度會員大會，並同時進行年度優秀選手頒獎典禮。歡迎所有會員踴躍參加！<br>
+                當天將提供精美茶點，並有幸運抽獎活動，最大獎為 Donic 頂級碳纖維拍一支！
+                </div>
+            </div>
+
+            <div class="memo">
+                <div class="memo-date">2025.11.15</div>
+                <div class="memo-title">2026 Ronald乒乓球俱樂部月賽開放報名</div>
+                <div class="memo-content">
+                    2026 年第一季「Ronald乒乓球俱樂部月賽」即日起開放報名！<br>
+                分為公開組、成人組、青少年組三個級別，每組最多8人，分4組，小組賽採用循環賽制，每組前4進入複賽，複賽採用單淘汰制。每局5局3勝。<br>
+                報名截止日期：12 月 5 日，名額有限，額滿為止！
+                </div>
+            </div>
+
+            <div class="memo">
+                <div class="memo-date">2025.11.10</div>
+                <div class="memo-title">前國家隊歐教練正式加入</div>
+                <div class="memo-content">
+                    很高興向大家介紹新任專職教練 — 前國家隊選手歐鈞賢教練！<br>
+                歐教練曾多次獲得全國冠軍，擅長正手弧圈技術與戰術分析。<br>
+                即日起開放一對一或小班制課程預約，歡迎大家踴躍報名！
+                </div>
+            </div>
+
+            <div class="memo">
+                <div class="memo-date">2025.11.05</div>
+                <div class="memo-title">Butterfly Tenergy 05 全系列到貨</div>
+                <div class="memo-content">
+                    會員專屬85折！05 / 05-Hard / 64 / 80 全部有<br>
+                    數量有限，賣完就沒囉～想換膠皮的快來！
+                </div>
+            </div>
+
+            <div class="memo">
+                <div class="memo-date">2025.10.30</div>
+                <div class="memo-title">寒假兒童乒乓球冬令營開始招生</div>
+                <div class="memo-content">
+                    7-14歲小朋友專屬，每天3小時專業訓練＋體能遊戲<br>
+                    早鳥優惠只到12/15，名額20人，報名要快！
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

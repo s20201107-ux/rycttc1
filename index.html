@@ -51,6 +51,84 @@
         .wechat-qr { max-width: 180px; border: 8px solid white; border-radius: 12px; }
         [data-en] { display: none; } /* Default Chinese */
     </style>
+     <style>
+        body {
+            font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .news-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            position: relative;
+        }
+        h2::after {
+            content: "";
+            width: 80px;
+            height: 4px;
+            background: #e74c3c;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .news-list {
+            display: grid;
+            gap: 20px;
+        }
+        .news-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .news-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .news-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+        .news-date {
+            font-size: 1rem;
+            margin-right: 20px;
+            min-width: 100px;
+        }
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .news-content {
+            padding: 20px 24px;
+            line-height: 1.7;
+            color: #34495e;
+        }
+        .news-content p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .news-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .news-date {
+                margin-bottom: 8px;
+            }
+        }
+    </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
 
@@ -139,84 +217,6 @@ D2學界8強<br>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>最新消息 - Ronald乒乓球俱樂部</title>
-    <style>
-        body {
-            font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-        .news-section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        h2 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 40px;
-            font-size: 2.2rem;
-            position: relative;
-        }
-        h2::after {
-            content: "";
-            width: 80px;
-            height: 4px;
-            background: #e74c3c;
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .news-list {
-            display: grid;
-            gap: 20px;
-        }
-        .news-item {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .news-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-        .news-header {
-            display: flex;
-            align-items: center;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-        }
-        .news-date {
-            font-size: 1rem;
-            margin-right: 20px;
-            min-width: 100px;
-        }
-        .news-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-        .news-content {
-            padding: 20px 24px;
-            line-height: 1.7;
-            color: #34495e;
-        }
-        .news-content p {
-            margin: 0;
-        }
-        @media (max-width: 768px) {
-            .news-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .news-date {
-                margin-bottom: 8px;
-            }
-        }
-    </style>
     <h2>最新消息</h2>
 
     <div class="news-list">

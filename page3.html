@@ -82,9 +82,26 @@
                            </div>
         </div>
     </section>
-    </body>
-    <!-- Scripts -->
+        <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script>
+        // Language Switch
+        document.getElementById('lang-switch').addEventListener('click', function() {
+            document.querySelectorAll('[data-cn],[data-en]').forEach(el => {
+                el.style.display = (el.style.display === 'none' || el.style.display === '') ? '' : 'none';
+            });
+            this.textContent = this.textContent.includes('English') ? '中文' : 'English';
+        });
+
+        // Back to Top
+        window.onscroll = function() {
+            document.getElementById("backToTop").style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" : "none";
+        };
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    </body>
 </html>

@@ -41,12 +41,41 @@
         #about, #gallery { background: #f8f9fa; }
         #contact, #schedule { background: var(--secondary); color: white; }
         .card:hover { transform: translateY(-12px); }
-        .whatsapp-float, .back-to-top {
-            position: fixed; bottom: 20px; z-index: 9999; width: 60px; height: 60px;
-            border-radius: 50%; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-        .whatsapp-float { left: 20px; background: #25D366; color: white; }
-        .back-to-top { right: 20px; background: var(--primary); color: white; display: none; }
+        whatsapp-float,
+.back-to-top {
+    position: fixed;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* WhatsApp button – sits at the very bottom */
+.whatsapp-float {
+    left: 20px;
+    bottom: 20px;           /* 20px from bottom edge */
+    background: #25D366;
+    color: white;
+}
+        /* Back-to-Top button – sits directly above the WhatsApp button */
+.back-to-top {
+    left: 20px;
+    bottom: 90px;           /* 20px (bottom gap) + 60px (WhatsApp height) + 10px extra space */
+    background: var(--primary);
+    color: white;
+    display: none;          /* shown with JS when scrolling */
+}
+
+/* Optional: show back-to-top when needed */
+.back-to-top.show {
+    display: flex;
+}
         .wechat-qr { max-width: 180px; border: 8px solid white; border-radius: 12px; }
         [data-en] { display: none; } /* Default Chinese */
     </style>
@@ -164,7 +193,7 @@
         #floating-cart-btn {
             position: fixed;
             right: 20px;
-            bottom: 15px;
+            bottom: 20px;
             width: 66px;
             height: 66px;
             background: #e74c3c;

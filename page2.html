@@ -50,6 +50,28 @@
         .back-to-top { right: 20px; background: var(--primary); color: white; display: none; }
         .wechat-qr { max-width: 180px; border: 8px solid white; border-radius: 12px; }
         [data-en] { display: none; } /* Default Chinese */
+  body{
+    margin:0; height:100vh; background:linear-gradient(135deg,#ff003c,#ff8c00);
+    display:grid; place-items:center; font-family:system-ui,sans-serif; color:#fff;
+  }
+  .offer{
+    text-align:center; padding:30px; border-radius:20px;
+    background:rgba(0,0,0,0.3); backdrop-filter:blur(12px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  }
+  .title{
+    font-size:28px; font-weight:900; letter-spacing:4px; margin-bottom:10px;
+    text-shadow:0 2px 10px rgba(0,0,0,0.5);
+  }
+  .countdown{
+    display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
+  }
+  .box{
+    background:rgba(255,255,255,0.15); padding:16px 20px; border-radius:12px;
+    min-width:80px; backdrop-filter:blur(5px);
+  }
+  .num{font-size:48px; font-weight:900;}
+  .txt{font-size:12px; opacity:0.9; letter-spacing:2px;}
     </style>
 </head>
     <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
@@ -122,6 +144,45 @@
                         </div>
                     </div>
                 </div>
+                <div class="offer">
+  <div class="title">LIMITED OFFER</div>
+  <div class="countdown">
+    <div class="box"><div class="num" id="d">00</div><div class="txt">DAYS</div></div>
+    <div class="box"><div class="num" id="h">00</div><div class="txt">HOURS</div></div>
+    <div class="box"><div class="num" id="m">00</div><div class="txt">MINUTES</div></div>
+    <div class="box"><div class="num" id="s">00</div><div class="txt">SECONDS</div></div>
+        <div class="col-md-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body p-5">
+                            <h4 class="text-primary"><span data-cn>2026Ronald乒乓球俱樂部月賽</span><span data-en>Coach</span></h4>
+                            <p class="text-muted"><span data-cn>2026年1月14日週五 7–11pm</span><span data-en>Friday 7–11pm</span></p>
+                            <a href="index.html#contact" class="btn btn-outline-primary w-100 mt-4"><span data-cn>報名</span><span data-en>Book</span></a>
+                        </div>
+                    </div>
+                </div>
+  </div>
+</div>
+
+<script>
+// Change this line only — set your deadline
+const end = new Date("2025-12-10 23:59:59").getTime();  // Example: 10 Dec 2025
+
+setInterval(() => {
+  let diff = Math.max(0, (end - Date.now()) / 1000);
+
+  const d = Math.floor(diff / 86400);
+  const h = String(Math.floor(diff % 86400 / 3600)).padStart(2, '0');
+  const m = String(Math.floor(diff % 3600 / 60)).padStart(2, '0');
+  const s = String(Math.floor(diff % 60)).padStart(2, '0');
+
+  document.getElementById('d').textContent = d;
+  document.getElementById('h').textContent = h;
+  document.getElementById('m').textContent = m;
+  document.getElementById('s').textContent = s;
+
+  if (diff === 0) document.querySelector('.title').textContent = "OFFER ENDED";
+}, 500);
+</script>
             </div>
         </div>
     </section>

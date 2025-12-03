@@ -190,27 +190,34 @@
             0%,100% { box-shadow:0 10px 30px rgba(230,57,70,0.5); }
             50% { box-shadow:0 10px 45px rgba(230,57,70,0.7); }
         }
+         /* 最新「吸進購物車」下墜動畫 */
+        .dropping-item {
+            position:fixed; width:90px; height:90px; border-radius:16px; pointer-events:none;
+            z-index:9999; box-shadow:0 15px 40px rgba(0,0,0,0.4);
+            animation:dropToCart 0.9s cubic-bezier(0.2,0.8,0.4,1) forwards;
+        }
+        @keyframes dropToCart {
+            0%   { opacity:1; transform:scale(1)   rotate(0deg);   }
+            30%  { opacity:0.9; transform:scale(0.7) rotate(20deg); }
+            100% { opacity:0; transform:translate(calc(100vw - 110px), calc(100vh - 110px)) scale(0.1) rotate(360deg); }
+        }
+        @keyframes cartJump {
+            0%   { transform:scale(1); }
+            40%  { transform:scale(1.35); }
+            70%  { transform:scale(0.9); }
+            100% { transform:scale(1); }
+        }
+        .cart-jump { animation:cartJump 0.7s ease-out; }
 
-        /* 真正「丟進購物車」動畫 */
-        .flying-item {
-            position:fixed; width:90px; height:90px; border-radius:14px;
-            box-shadow:0 12px 35px rgba(0,0,0,0.35); pointer-events:none; z-index:9999;
-            animation:throwToCart 1.1s cubic-bezier(0.25,0.8,0.25,1) forwards;
+        .cart-modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75);
+            z-index:1000; justify-content:center; align-items:center; }
+        .cart-content { background:white; width:90%; max-width:540px; border-radius:20px; padding:40px; max-height:88vh; overflow-y:auto; }
+        .close-cart { float:right; font-size:2.8rem; cursor:pointer; color:#aaa; }
+
+        @media (max-width:768px) {
+            .floating-cart { width:60px; height:60px; right:15px; bottom:15px; }
+            .floating-cart svg { width:30px; height:30px; }
         }
-        @keyframes throwToCart {
-            0%   { opacity:1; transform:translate(0,0) rotate(0deg) scale(1); }
-            40%  { transform:translate(80px,-180px) rotate(45deg) scale(0.9); }
-            80%  { opacity:0.9; transform:translate(calc(100vw - 150px), calc(100vh - 150px)) rotate(360deg) scale(0.6); }
-            100% { opacity:0; transform:translate(calc(100vw - 110px), calc(100vh - 110px)) rotate(400deg) scale(0.2); }
-        }
-        @keyframes cartBounce {
-            0%   { transform:scale(1)    translateY(0); }
-            40%  { transform:scale(1.3)  translateY(-18px); }
-            60%  { transform:scale(0.95) translateY(6px); }
-            80%  { transform:scale(1.15) translateY(-10px); }
-            100% { transform:scale(1)    translateY(0); }
-        }
-        .cart-bounce { animation:cartBounce 0.8s ease-out; }
 
         /* 購物車視窗 */
         .cart-modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7);

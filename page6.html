@@ -213,6 +213,17 @@
             box-shadow:0 8px 25px rgba(0,186,0,0.4); transition:0.3s;
         }
         .checkout-btn:hover { background:#00a000; transform:scale(1.05); }
+         brand-filters { text-align: center; margin: 20px 0; }
+.brand-btn {
+  padding: 10px 16px;
+  margin: 4px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.brand-btn.active { background: #c00; font-weight: bold; }
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
@@ -239,30 +250,17 @@
         </div>
     </nav>
 
-<!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="#">🏓 PingPong Pro Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="nav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#rackets">Rackets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Rackets Grid -->
-    <section id="rackets" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 fw-bold">商品目錄</h2>
-            <div class="row g-4">
-
+<div class="brand-filters">
+  <button class="brand-btn active" data-brand="all">All Brands</button>
+  <button class="brand-btn" data-brand="Butterfly">Butterfly</button>
+  <button class="brand-btn" data-brand="Donic">Donic</button>
+  <button class="brand-btn" data-brand="Stiga">Stiga</button>
+  <button class="brand-btn" data-brand="DHS">DHS</button>
+  <button class="brand-btn" data-brand="Nittaku">Nittaku</button>
+  <!-- Add more brands here if you need -->
+</div>
                 <!-- Racket 1 -->
+                <tr data-brand="Butterfly">
                 <div class="col-md-6 col-lg-4">
                     <div class="card racket-card h-100">
                         <div class="position-relative">
@@ -999,16 +997,23 @@ function toggleCart(){
     updateCart();
 }
 
-// 分類篩選
-document.querySelectorAll('.filters button').forEach(b=>{
-    b.addEventListener('click',()=>{
-        document.querySelector('.filters button.active').classList.remove('active');
-        b.classList.add('active');
-        const f = b.dataset.filter;
-        document.querySelectorAll('.product-card').forEach(c=>{
-            c.style.display = (f==='all' || c.dataset.brand===f) ? 'block' : 'none';
-        });
+document.querySelectorAll('.brand-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const brand = this.dataset.brand;
+
+    // Change active button
+    document.querySelectorAll('.brand-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+
+    // Show/hide rows
+    document.querySelectorAll('#your-table-id tbody tr').forEach(row => {
+      if (brand === 'all' || row.dataset.brand === brand) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
     });
+  });
 });
 </script>
     </section>

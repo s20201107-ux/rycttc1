@@ -146,6 +146,12 @@
       width: auto;              /* keeps original ratio */
       flex-shrink: 0;           /* prevents squashing */
     }
+      .body {
+  font-family:'Noto Sans TC',sans-serif;
+  background:#ffffff;
+  color:#222;
+  /* margin:0; */     /* 保留你原本網站的 margin */
+}
       
     .header{
       padding:90px 20px 70px;
@@ -315,7 +321,7 @@
 <div class="tabs">
   <div class="tab active"    data-target="alltime">總積分榜</div>
   <div class="tab"           data-target="year2025">2025 年度榜</div>
-  <div class="tab"           data-target="teen">青少年龍虎榜</div>
+  <div class="tab"           data-target="teen">學員年龍虎榜</div>
   <div class="tab"           data-target="coach">教練榮譽榜</div>
   <div class="tab"           data-target="monthly">本月之星</div>
 </div>
@@ -358,7 +364,7 @@
 
   <!-- 3. 青少年龍虎榜 -->
   <div id="teen">
-    <h2 class="section-title">青少年龍虎榜 <span>(18歲以下)</span></h2>
+    <h2 class="section-title">學員龍虎榜 <span>(18歲以下)</span></h2>
     <table>
       <thead><tr><th>排名</th><th>選手</th><th>積分</th><th>年齡</th></tr></thead>
       <tbody>
@@ -398,25 +404,9 @@
 
   <footer>
     最後更新：2025年12月7日 │ 所有排名以積分為唯一標準<br>
-    某某桌球俱樂部 © 2025　期待你登上龍虎榜！
+    Ronald 乒乓球俱樂部球俱樂部 © 2025　期待你登上龍虎榜！
   </footer>
 </div>
-
-<script>
-  // 導航按鈕點擊事件（已修復）
-  document.querySelectorAll('.tab').forEach(btn => {
-    btn.addEventListener('click', function() {
-      // 移除所有 active
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      // 加上目前這個
-      this.classList.add('active');
-      // 平滑滾動到目標區塊
-      document.getElementById(this.dataset.target).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    });
-  });
   <!-- Floating Buttons -->
     <a href="https://wa.me/85292949860" target="_blank" class="whatsapp-float d-flex align-items-center justify-content-center">
         <i class="fab fa-whatsapp"></i>

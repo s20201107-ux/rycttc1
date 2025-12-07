@@ -146,37 +146,42 @@
       width: auto;              /* keeps original ratio */
       flex-shrink: 0;           /* prevents squashing */
     }
-      .body {
-  font-family:'Noto Sans TC',sans-serif;
-  background:#ffffff;
-  color:#222;
-  /* margin:0; */     /* 保留你原本網站的 margin */
-}
-      
-    .header{
+     /* ═══════════════════════════════════════════ */
+    /* 所有樣式都限制在 .longhu-wrapper 裡面，絕對不外洩 */
+    /* ═══════════════════════════════════════════ */
+    .longhu-wrapper * { box-sizing: border-box; }
+    .longhu-wrapper body, .longhu-wrapper html { margin:0; padding:0; } /* 只影響這頁的 body */
+
+    .longhu-wrapper {
+      font-family: 'Noto Sans TC',sans-serif;
+      background:#ffffff;
+      color:#222;
+      padding-top: 30px; /* 留一點空間給你原本的 navbar */
+      min-height: 100vh;
+    }
+
+    .longhu-header {
       padding:90px 20px 70px;
       text-align:center;
       background:linear-gradient(135deg,#f0f8ff,#e8f5ff);
     }
-    .title-wrapper{
+    .longhu-title-wrapper {
       display:inline-flex;
       align-items:center;
       gap:40px;
       flex-wrap:wrap;
       justify-content:center;
     }
-    .dragon-logo,.tiger-logo{
+    .longhu-dragon, .longhu-tiger {
       width:110px;
       height:110px;
       filter:drop-shadow(0 0 15px rgba(0,100,255,0.3));
       animation:float 6s ease-in-out infinite;
     }
-    .tiger-logo{animation-delay:0.6s;}
-    @keyframes float{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-18px)}
-    }
-    .big-title{
+    .longhu-tiger {animation-delay:0.6s;}
+    @keyframes float {0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+
+    .longhu-big-title {
       font-family:'ZCOOL QingKe HuangYou',cursive;
       font-size:7.2rem;
       font-weight:900;
@@ -186,100 +191,58 @@
       -webkit-text-stroke:1.5px rgba(0,0,255,0.15);
       text-shadow:0 0 30px rgba(255,255,255,0.8);
     }
-    .subtitle{
+    .longhu-subtitle {
       font-size:1.6rem;
       margin:25px 0 0;
       color:#1565c0;
       letter-spacing:5px;
-      font-weight:500;
     }
 
-    .container{max-width:1350px;margin:0 auto;padding:40px 20px;}
-
-    .tabs{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:18px;
-      margin-bottom:70px;
-      position:sticky;
-      top:15px;
-      z-index:100;
-      background:rgba(255,255,255,0.95);
-      padding:15px 30px;
-      border-radius:50px;
-      box-shadow:0 8px 30px rgba(0,0,0,0.1);
-      backdrop-filter:blur(10px);
+    .longhu-tabs {
+      display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin:50px 0 70px;
+      position:sticky;top:80px;z-index:99;
+      background:rgba(255,255,255,0.95);padding:15px 30px;
+      border-radius:50px;box-shadow:0 8px 30px rgba(0,0,0,0.1);
     }
-    .tab{
-      padding:14px 38px;
-      background:#1565c0;
-      color:#fff;
-      border-radius:50px;
-      cursor:pointer;
-      font-weight:600;
-      transition:0.4s;
-      font-size:1.1rem;
+    .longhu-tab {
+      padding:14px 38px;background:#1565c0;color:#fff;border-radius:50px;
+      cursor:pointer;font-weight:600;transition:0.4s;font-size:1.1rem;
     }
-    .tab:hover,.tab.active{
-      background:#004499;
-      transform:scale(1.1);
-      box-shadow:0 0 20px rgba(0,68,153,0.6);
+    .longhu-tab:hover,.longhu-tab.active {
+      background:#004499;transform:scale(1.1);
     }
 
-    .section-title{
-      font-size:2.8rem;
-      color:#1565c0;
-      margin:90px 0 40px;
-      text-align:center;
-      font-weight:700;
+    .longhu-section-title {
+      font-size:2.8rem;color:#1565c0;margin:90px 0 40px;text-align:center;font-weight:700;
     }
 
-    table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0 15px;
-      background:#f8fbff;
-      border-radius:18px;
-      overflow:hidden;
+    .longhu-table {
+      width:100%;border-collapse:separate;border-spacing:0 15px;
+      background:#f8fbff;border-radius:18px;overflow:hidden;
       box-shadow:0 10px 35px rgba(0,0,0,0.08);
+      margin-bottom:30px;
     }
-    th{
-      background:#1565c0;
-      color:#fff;
-      padding:25px;
-      font-size:1.4rem;
+    .longhu-table th {
+      background:#1565c0;color:#fff;padding:25px;font-size:1.4rem;
     }
-    td{
-      padding:22px;
-      background:#fff;
-      color:#222;
-      text-align:center;
-      font-size:1.1rem;
+    .longhu-table td {
+      padding:22px;background:#fff;color:#222;text-align:center;
       box-shadow:0 2px 8px rgba(0,0,0,0.04);
     }
-    tr:hover td{background:#fff;}
-    tr:hover td{background:#f0f7ff;}
-    .rank-1 td{background:linear-gradient(90deg,#ffd700,#ffed4e)!important;color:#000;font-weight:bold;font-size:1.25rem;}
-    .rank-2 td{background:#e0e0e0!important;}
-    .rank-3 td{background:#ff9800!important;color:#fff;}
+    .longhu-table tr:hover td {background:#f0f7ff;}
+    .longhu-table .rank-1 td {background:linear-gradient(90deg,#ffd700,#ffed4e)!important;color:#000;font-weight:bold;}
+    .longhu-table .rank-2 td {background:#e0e0e0!important;}
+    .longhu-table .rank-3 td {background:#ff9800!important;color:#fff;}
 
-    footer{
-      text-align:center;
-      margin:120px auto 40px;
-      padding:35px;
-      background:#1565c0;
-      color:#fff;
-      border-radius:15px;
-      max-width:1000px;
+    .longhu-footer {
+      text-align:center;margin:120px auto 40px;padding:35px;
+      background:#1565c0;color:#fff;border-radius:15px;max-width:1000px;
     }
 
     @media(max-width:768px){
-      .big-title{font-size:4.8rem;letter-spacing:6px;}
-      .dragon-logo,.tiger-logo{width:75px;height:75px;}
-      .title-wrapper{gap:18px;}
-      .tab{padding:12px 22px;font-size:1rem;}
-      .section-title{font-size:2.2rem;}
+      .longhu-big-title{font-size:4.8rem;letter-spacing:6px;}
+      .longhu-dragon,.longhu-tiger{width:75px;height:75px;}
+      .longhu-tab{padding:12px 22px;font-size:1rem;}
     }
   </style>
 
@@ -308,30 +271,32 @@
             </div>
         </div>
     </nav>
-<div class="header">
-  <div class="title-wrapper">
+<div class="longhu-wrapper">
+  <div class="longhu-header">
+   <div class="longhu-title-wrapper">
     <img src="https://cdn.vectorstock.com/i/500p/12/46/majestic-dragon-tattoo-vector-38861246.jpg" alt="龍" class="dragon-logo">
-    <h1 class="big-title">龍虎榜</h1>
+    <h1 class="longhu-big-title">龍虎榜</h1>
     <img src="https://static.vecteezy.com/system/resources/thumbnails/051/719/352/small/a-black-and-white-tiger-head-logo-vector.jpg" alt="虎" class="tiger-logo">
   </div>
-  <p class="subtitle">只看積分，實力說話 — 永久榮耀殿堂</p>
+  <p class="longhu-subtitle">只看積分，實力說話 — 永久榮耀殿堂</p>
 </div>
+ 
 
 <!-- 導航按鈕（完全可點擊） -->
-<div class="tabs">
-  <div class="tab active"    data-target="alltime">總積分榜</div>
-  <div class="tab"           data-target="year2025">2025 年度榜</div>
-  <div class="tab"           data-target="teen">學員年龍虎榜</div>
-  <div class="tab"           data-target="coach">教練榮譽榜</div>
-  <div class="tab"           data-target="monthly">本月之星</div>
+<div class="longhu-tabs">
+  <div class="longhu-tab active"    data-target="alltime">總積分榜</div>
+  <div class="longhu-tab"           data-target="year2025">2025 年度榜</div>
+  <div class="longhu-tab"           data-target="teen">學員年龍虎榜</div>
+  <div class="longhu-tab"           data-target="coach">教練榮譽榜</div>
+  <div class="longhu-tab"           data-target="monthly">本月之星</div>
 </div>
 
-<div class="container">
+<div style="max-width:1350px;margin:0 auto;padding:0 20px;">
 
   <!-- 1. 總積分榜 -->
   <div id="alltime">
-    <h2 class="section-title">歷代總積分榜</h2>
-    <table>
+    <h2 class="longhu-section-title">歷代總積分榜</h2>
+    <table class="longhu-table">
       <thead><tr><th>排名</th><th>選手</th><th>總積分</th></tr></thead>
       <tbody>
         <tr class="rank-1"><td>1</td><td>歐鈞賢</td><td>2,217</td></tr>
@@ -347,8 +312,8 @@
 
   <!-- 2. 2025 年度榜 -->
   <div id="year2025">
-    <h2 class="section-title">2025 年度積分榜</h2>
-    <table>
+    <h2 class="longhu-section-title">2025 年度積分榜</h2>
+    <table class="longhu-table">
       <thead><tr><th>排名</th><th>選手</th><th>2025 積分</th></tr></thead>
       <tbody>
         <tr class="rank-1"><td>1</td><td>歐鈞賢</td><td>2,141</td></tr>
@@ -364,8 +329,8 @@
 
   <!-- 3. 青少年龍虎榜 -->
   <div id="teen">
-    <h2 class="section-title">學員龍虎榜 <span>(18歲以下)</span></h2>
-    <table>
+    <h2 class="longhu-section-title">學員龍虎榜 <span>(18歲以下)</span></h2>
+   <table class="longhu-table">
       <thead><tr><th>排名</th><th>選手</th><th>積分</th><th>年齡</th></tr></thead>
       <tbody>
         <tr class="rank-1"><td>1</td><td>張嘉朗</td><td>1,680</td><td>17</td></tr>
@@ -377,8 +342,8 @@
 
   <!-- 4. 教練榮譽榜 -->
   <div id="coach">
-    <h2 class="section-title">教練榮譽榜</h2>
-    <table>
+ <h2 class="longhu-section-title">教練榮譽榜</h2>
+   <table class="longhu-table">
       <thead><tr><th>排名</th><th>教練</th><th>生涯指導積分</th><th>執教年資</th></tr></thead>
       <tbody>
         <tr class="rank-1"><td>1</td><td>歐教練</td><td>28,500</td><td>2年</td></tr>
@@ -391,8 +356,8 @@
 
   <!-- 5. 本月之星 -->
   <div id="monthly">
-    <h2 class="section-title">本月之星</h2>
-    <table>
+   <h2 class="longhu-section-title">本月之星</h2>
+   <table class="longhu-table">
       <thead><tr><th>月份</th><th>MVP</th><th>當月積分</th></tr></thead>
       <tbody>
         <tr class="rank-1"><td>2025年12月</td><td>張小龍</td><td>680</td></tr>
@@ -402,11 +367,21 @@
     </table>
   </div>
 
-  <footer>
+  <div class="longhu-footer">
     最後更新：2025年12月7日 │ 所有排名以積分為唯一標準<br>
     Ronald 乒乓球俱樂部球俱樂部 © 2025　期待你登上龍虎榜！
-  </footer>
+   </div>
+  </div>
 </div>
+ <script>
+    document.querySelectorAll('.longhu-tab').forEach(btn => {
+   btn.addEventListener('click', function() {
+     document.querySelectorAll('.longhu-tab').forEach(t => t.classList.remove('active'));
+     this.classList.add('active');
+     document.getElementById(this.dataset.target).scrollIntoView({behavior:'smooth'});
+   });
+ });
+  </script>
   <!-- Floating Buttons -->
     <a href="https://wa.me/85292949860" target="_blank" class="whatsapp-float d-flex align-items-center justify-content-center">
         <i class="fab fa-whatsapp"></i>
